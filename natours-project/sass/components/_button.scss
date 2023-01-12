@@ -1,0 +1,107 @@
+.btn-solid {
+  text-transform: uppercase;
+  display: inline-block;
+  border: none;
+  border-radius: 10rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  backface-visibility: hidden;
+  position: relative;
+  font-size: $default-font-size;
+
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: transform 0.4s, opacity 0.4s;
+  }
+
+  &__link {
+    display: block;
+    padding: 1.5rem 4rem;
+  }
+
+  &--submit {
+    padding: 1.5rem 4rem;
+    color: $color-white;
+    cursor: pointer;
+  }
+
+  &--white {
+    background-color: $color-white;
+
+    &::after {
+      background-color: $color-white;
+    }
+
+    .btn-solid {
+      &__link {
+        color: $color-grey-dark;
+      }
+    }
+  }
+
+  &--colored {
+    background-color: $color-primary;
+
+    &::after {
+      background-color: $color-primary;
+    }
+
+    .btn-solid {
+      &__link {
+        color: $color-white;
+      }
+    }
+  }
+
+  &--animated {
+    animation: moveUpbutton 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards;
+  }
+}
+
+.btn-naked {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary;
+    padding: 3px;
+    transition: transform 0.2s;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transform: translate(-2px);
+  }
+
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    transform: translate(0);
+  }
+}
